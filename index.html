@@ -8,13 +8,23 @@
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap');
 :root{--navy:#0b1b2e;--ink:#14263c;--muted:#748397;--line:#e5ebf1;--bg:#f5f7fa;--green:#16b777;--green-dark:#078b59;--blue:#16b777;--radius:16px;--shadow:0 8px 25px rgba(18,42,66,.06)}
-*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,Arial,sans-serif;font-size:14px;line-height:1.7}button,input,select,textarea{font:inherit}button{cursor:pointer}
+*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,Arial,sans-serif;font-size:14px;line-height:1.7;scroll-behavior:smooth}button,input,select,textarea{font:inherit}button{cursor:pointer}
 .app-shell{width:100%;max-width:100%;margin:0;padding:12px;}
 
-/* Topbar & Admin */
+/* Topbar */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 4px;margin-bottom:12px}
-.brand{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px}.brand span{color:var(--green)}
-.admin-btn{background:#e2e8f0;color:#334155;border:0;padding:6px 12px;border-radius:12px;font-size:11px;font-weight:bold;cursor:pointer}
+.whatsapp-link{background:#e9f8f1;color:#078b59;padding:8px 14px;border-radius:16px;font-size:12px;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background 0.2s}
+.whatsapp-link:hover{background:#d1f2e2}
+.site-logo-svg{height:42px;width:auto;display:block}
+
+/* Footer Admin Button */
+.bottom-admin-container{display:flex;justify-content:center;margin:24px 0 12px 0}
+.admin-btn{background:#e2e8f0;color:#334155;border:0;padding:8px 18px;border-radius:12px;font-size:12px;font-weight:bold;cursor:pointer;transition:background 0.2s}
+.admin-btn:hover{background:#cbd5e1}
+
+/* Quick Scroll Button */
+.quick-rates-btn{width:100%;background:linear-gradient(95deg,#102b46,#091828);color:#73e5b5;border:1px solid #1e4570;border-radius:12px;padding:10px;margin-bottom:12px;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 12px rgba(11,27,46,0.15);transition:transform 0.15s;cursor:pointer}
+.quick-rates-btn:active{transform:scale(0.98)}
 
 /* Hero Section */
 .hero{border-radius:20px;padding:20px 16px;background:linear-gradient(115deg,#091828 0%,#102b46 65%,#12443e 120%);color:#fff;box-shadow:var(--shadow);margin-bottom:16px}
@@ -59,9 +69,8 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
 .khaki-mobile-container{position:relative;width:100%;height:400px;overflow-y:auto;overflow-x:hidden;border-radius:12px;background:#ffffff;border:1px solid #1e4570;-webkit-overflow-scrolling:touch;}
 .khaki-mobile-iframe{width:100%;height:750px;border:0;display:block;}
 
-/* External Link Card for Protected Sites */
-.external-link-card{display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#10243d 0%,#091828 100%);border:1px solid #1e4570;border-radius:12px;padding:24px 16px;text-align:center;gap:12px;min-height:180px}
-.external-link-card p{color:#cbd5e1;font-size:12px;margin:0}
+/* Compact External Link Card for Protected Sites */
+.external-link-card{display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#10243d 0%,#091828 100%);border:1px solid #1e4570;border-radius:12px;padding:8px 16px;text-align:center;gap:0px;min-height:0;height: auto; margin-top: 8px;}
 .external-btn{background:linear-gradient(95deg,#12a96b,#16b777);color:#fff;text-decoration:none;padding:10px 20px;border-radius:10px;font-weight:bold;font-size:13px;box-shadow:0 4px 12px rgba(22,183,119,0.3);transition:0.2s}
 .external-btn:hover{opacity:0.9}
 
@@ -79,14 +88,28 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <div class="brand">
-        <div>152 <span>Cards</span></div>
-      </div>
-      <div style="display:flex; gap:6px; align-items:center;">
-        <div id="whatsappBadge" style="background:#e9f8f1; color:#078b59; padding:6px 10px; border-radius:16px; font-size:11px; font-weight:bold;">واتساپ: +9647812845787</div>
-        <button class="admin-btn" onclick="openAdminModal()">⚙️ بەڕێوەبەر</button>
-      </div>
+      <!-- Direct WhatsApp Link Button -->
+      <a href="https://wa.me/9647504155615" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+        📱 واتساپ: 0750-415-5615
+      </a>
+
+      <!-- Embedded Clean Vector Logo (Transparent, Guaranteed to Load) -->
+      <svg class="site-logo-svg" viewBox="0 0 130 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="6" width="26" height="20" rx="3" fill="#16b777" opacity="0.25"/>
+        <rect x="6" y="10" width="26" height="20" rx="3" fill="#16b777"/>
+        <rect x="9" y="14" width="7" height="5" rx="1" fill="#0b1b2e"/>
+        <line x1="20" y1="16" x2="28" y2="16" stroke="#0b1b2e" stroke-width="2" stroke-linecap="round"/>
+        <line x1="9" y1="24" x2="21" y2="24" stroke="#0b1b2e" stroke-width="2" stroke-linecap="round"/>
+        <text x="38" y="27" fill="#16b777" font-family="'Noto Sans Arabic', sans-serif" font-weight="800" font-size="20">152</text>
+        <text x="82" y="27" fill="#ffffff" font-family="'Noto Sans Arabic', sans-serif" font-weight="700" font-size="15">Cards</text>
+      </svg>
     </header>
+
+    <!-- Quick Scroll Button -->
+    <button class="quick-rates-btn" onclick="scrollToStreams()">
+      <span>📊 بۆ زانینی نرخی ڕاستەوخۆی دراوەکان ئێرە داگرە</span>
+      <span>↓</span>
+    </button>
 
     <div class="hero">
       <div style="color:#9be7c8; font-size:11px; font-weight:bold;">تۆماتیکی و خێرا</div>
@@ -158,9 +181,9 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
     </div>
 
     <!-- Live Display Streams Section -->
-    <div class="footer-streams-card">
+    <div class="footer-streams-card" id="liveStreamsSection">
       <div class="footer-streams-title">📡 پەخشی ڕاستەوخۆی بۆرسە و کۆمپانیاکانی هەولێر</div>
-      <div class="footer-streams-subtitle">گواستنەوەی تەواوی تابلۆکان به شێوازی ڕێک و ستوونی</div>
+      <div class="footer-streams-subtitle">گواستنەوەی تەواوی تابلۆکان بە شێوازی ڕێک و ستوونی</div>
 
       <div class="streams-grid">
         <!-- 1. Qamar Al-Fajr -->
@@ -188,7 +211,7 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
         <!-- 3. Billion Exchange -->
         <div class="full-stream-box">
           <div class="full-stream-header">
-            <span>🏢 بۆرسەی بلیۆن (Billion Exchange)</span>
+            <span>🏢 بلیۆن (Billion Exchange)</span>
             <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
           </div>
           <div class="large-frame-container">
@@ -196,10 +219,10 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
           </div>
         </div>
 
-        <!-- 4. Hazhmar Imn -->
+        <!-- 4. Hazhmari Mn -->
         <div class="full-stream-box">
           <div class="full-stream-header">
-            <span>🏢 هەژماری من (Hazhmar Imn)</span>
+            <span>🏢 هەژماری من (Hazhmari Mn)</span>
             <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
           </div>
           <div class="large-frame-container">
@@ -229,42 +252,44 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
           </div>
         </div>
 
-        <!-- 7. Tak Draw (Direct Link Button due to server security blocking iframe) -->
+        <!-- 7. Tak Draw (External Link Button - Compact) -->
         <div class="full-stream-box">
           <div class="full-stream-header">
             <span>🏢 تاک دراو (Tak Draw)</span>
             <span style="color:#73e5b5; font-size:10px;">🟢 کراوە</span>
           </div>
           <div class="external-link-card">
-            <p>ئەم کۆمپانیایە ڕێگری لە پیشاندانی ڕاستەوخۆ دەکات، تکایە بۆ بینینی تابلۆکە کرتە بکە:</p>
             <a href="https://www.takdraw.com/" target="_blank" rel="noopener noreferrer" class="external-btn">کردنەوەی تابلۆی تاک دراو</a>
           </div>
         </div>
 
-        <!-- 8. Borsa Alam (Direct Link Button) -->
+        <!-- 8. Borsa Alam (External Link Button - Compact) -->
         <div class="full-stream-box">
           <div class="full-stream-header">
             <span>🏢 بۆرسەی عالم (Borsa Alam)</span>
             <span style="color:#73e5b5; font-size:10px;">🟢 کراوە</span>
           </div>
           <div class="external-link-card">
-            <p>ئەم کۆمپانیایە ڕێگری لە پیشاندانی ڕاستەوخۆ دەکات، تکایە بۆ بینینی تابلۆکە کرتە بکە:</p>
             <a href="https://borsa-alam.com/" target="_blank" rel="noopener noreferrer" class="external-btn">کردنەوەی تابلۆی بۆرسەی عالم</a>
           </div>
         </div>
 
-        <!-- 9. Baz Exchange (Direct Link Button) -->
+        <!-- 9. Baz Exchange (External Link Button - Compact) -->
         <div class="full-stream-box">
           <div class="full-stream-header">
-            <span>🏢 باز ئەوەنج (Baz Exchange)</span>
+            <span>🏢 باز ئیکسچەینج (Baz Exchange)</span>
             <span style="color:#73e5b5; font-size:10px;">🟢 کراوە</span>
           </div>
           <div class="external-link-card">
-            <p>ئەم کۆمپانیایە ڕێگری لە پیشاندانی ڕاستەوخۆ دەکات، تکایە بۆ بینینی تابلۆکە کرتە بکە:</p>
-            <a href="https://bazexchange.com/currency" target="_blank" rel="noopener noreferrer" class="external-btn">کردنەوەی تابلۆی باز ئەوەنج</a>
+            <a href="https://bazexchange.com/currency" target="_blank" rel="noopener noreferrer" class="external-btn">کردنەوەی تابلۆی باز ئیکسچەینج</a>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Admin Button Moved to Bottom -->
+    <div class="bottom-admin-container">
+      <button class="admin-btn" onclick="openAdminModal()">⚙️ بەڕێوەبەر</button>
     </div>
   </div>
 
@@ -289,7 +314,7 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
         
         <div class="field-group">
           <label>ژمارەی واتساپ بۆ ناردنی داواکاری</label>
-          <div class="input-wrap"><input type="text" id="settingWhatsapp" placeholder="9647812845787"></div>
+          <div class="input-wrap"><input type="text" id="settingWhatsapp" placeholder="9647504155615"></div>
         </div>
 
         <div class="field-group">
@@ -304,12 +329,18 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
   </div>
 
   <script>
+    function scrollToStreams() {
+      const section = document.getElementById('liveStreamsSection');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
     let siteSettings = JSON.parse(localStorage.getItem('152cards_settings')) || {
-      whatsapp: "9647812845787",
+      whatsapp: "9647504155615",
       defaultMultiplier: 0.95
     };
 
-    document.getElementById('whatsappBadge').textContent = "واتساپ: +" + siteSettings.whatsapp;
     document.getElementById('settingWhatsapp').value = siteSettings.whatsapp;
     document.getElementById('settingDefaultMultiplier').value = siteSettings.defaultMultiplier;
 
@@ -343,7 +374,6 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
       
       localStorage.setItem('152cards_settings', JSON.stringify(siteSettings));
       
-      document.getElementById('whatsappBadge').textContent = "واتساپ: +" + siteSettings.whatsapp;
       alert("گۆڕانکارییەکان بە سەرکەوتوویی پاشەکەوت کران!");
       closeAdminModal();
       calculateExchange();
@@ -415,8 +445,6 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
 
     document.getElementById('requestForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      const من = fromSel.value;
-      const بۆ = toSel.value;
       const amount = parseFloat(amountInput.value) || 0;
       const notes = document.getElementById('notes').value.trim();
 
