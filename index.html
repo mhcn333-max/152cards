@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#0b1b2e">
+  <title>152 Cards | ئاڵوگۆڕی باڵانس و پەخشی بۆرسە</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap');
+:root{--navy:#0b1b2e;--ink:#14263c;--muted:#748397;--line:#e5ebf1;--bg:#f5f7fa;--green:#16b777;--green-dark:#078b59;--blue:#16b777;--radius:16px;--shadow:0 8px 25px rgba(18,42,66,.06)}
+*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,Arial,sans-serif;font-size:14px;line-height:1.7}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.app-shell{width:100%;max-width:100%;margin:0;padding:12px;}
+
+/* Topbar & Admin */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 4px;margin-bottom:12px}
+.brand{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px}.brand span{color:var(--green)}
+.admin-btn{background:#e2e8f0;color:#334155;border:0;padding:6px 12px;border-radius:12px;font-size:11px;font-weight:bold;cursor:pointer}
+
+/* Hero Section */
+.hero{border-radius:20px;padding:20px 16px;background:linear-gradient(115deg,#091828 0%,#102b46 65%,#12443e 120%);color:#fff;box-shadow:var(--shadow);margin-bottom:16px}
+.hero h1{font-size:24px;margin:4px 0;font-weight:800}.hero h1 span{color:#73e5b5}.hero p{color:#d0dbe4;margin:0;font-size:11px}
+
+/* Form Card */
+.form-card{background:#fff;border:1px solid #e9edf2;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 14px;width:100%;margin-bottom:16px}
+.card-heading h2{font-size:18px;margin:0 0 2px}.card-heading p{color:var(--muted);font-size:11px;margin:0 0 14px}
+.field-group{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;width:100%}
+.field-group label{font-size:11px;font-weight:700;color:#293c51}.optional{color:#98a5b4;font-weight:normal;font-size:9px}
+.input-wrap,.select-wrap{position:relative;display:flex;align-items:center;border:1px solid #e1e7ed;border-radius:12px;background:#fff;width:100%}
+.input-wrap input,.select-wrap select,textarea{width:100%;border:0;outline:0;background:transparent;color:var(--ink);height:44px;padding:0 12px;font-size:13px}
+.select-wrap select{appearance:none;cursor:pointer}.select-wrap span{position:absolute;left:12px;pointer-events:none;color:#8797a7}
+textarea{height:auto;padding:10px 12px;resize:vertical}
+.rate-banner{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:8px 12px;color:#1e40af;font-size:11px;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.rate-banner-icon{width:20px;height:20px;border-radius:50%;background:#2563eb;color:#fff;display:grid;place-items:center;font-weight:bold;font-size:10px;flex:none}
+.exchange-panel{background:#f8fcfa;border:1px solid #e2eee8;border-radius:14px;padding:12px;margin-bottom:12px;width:100%}
+.exchange-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center}
+.quick-amounts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;justify-content:center}
+.btn-chip{border:1px solid #dbeade;background:#f0fdf4;color:#166534;padding:5px 9px;border-radius:14px;font-size:10px;font-weight:700;transition:.15s}
+.btn-chip:hover,.btn-chip.active{background:#16b777;color:#fff;border-color:#16b777}
+.calc-result{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:14px 0;text-align:right}
+.calc-item small{display:block;color:var(--muted);font-size:10px;margin-bottom:2px}
+.calc-item strong{font-size:15px;font-weight:800}
+.calc-fee{color:#d97706}.calc-payout{color:#2563eb}
+.submit-btn{width:100%;border:0;border-radius:12px;height:48px;background:linear-gradient(95deg,#12a96b,#16b777);color:#fff;font-weight:800;font-size:14px;box-shadow:0 8px 18px #14ad7125;cursor:pointer}
+
+/* Footer Live Streams Section */
+.footer-streams-card{background:linear-gradient(135deg,#0e2238 0%,#133150 100%);border:1px solid #1f4369;border-radius:20px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow);color:#fff}
+.footer-streams-title{font-size:16px;font-weight:800;color:#73e5b5;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.footer-streams-subtitle{font-size:11px;color:#a0aec0;margin-bottom:16px}
+.streams-grid{display:flex;flex-direction:column;gap:18px}
+
+.full-stream-box{background:#091828;border:1px solid #1e4570;border-radius:16px;padding:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.3)}
+.full-stream-header{font-size:13px;font-weight:800;color:#cbd5e1;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1f4369;padding-bottom:6px}
+
+/* Standard Frame Container */
+.large-frame-container{position:relative;width:100%;height:250px;overflow:hidden;border-radius:12px;background:#ffffff;border:1px solid #1e4570;}
+.full-embed-iframe{width:1100px;height:750px;border:0;position:absolute;top:0;left:50%;transform: scale(0.32);transform-origin: top left;margin-left: -176px;}
+
+/* Dedicated Responsive Mobile View Container for Khaki Shaqlawa matching image 2 */
+.khaki-mobile-container{position:relative;width:100%;height:400px;overflow-y:auto;overflow-x:hidden;border-radius:12px;background:#ffffff;border:1px solid #1e4570;-webkit-overflow-scrolling:touch;}
+.khaki-mobile-iframe{width:100%;height:750px;border:0;display:block;}
+
+.qamar-iframe{ transform: scale(0.35); margin-left: -190px; }
+.billion-iframe{ transform: scale(0.32); margin-left: -175px; }
+
+/* Admin Modal Styles */
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:999;justify-content:center;align-items:center;padding:16px}
+.modal-content{background:#fff;border-radius:16px;width:100%;max-width:450px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.2);max-height:90vh;overflow-y:auto}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid #eee;padding-bottom:8px}
+.modal-header h3{margin:0;font-size:16px;color:var(--navy)}
+.close-btn{background:none;border:0;font-size:18px;cursor:pointer;color:#748397}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div>152 <span>Cards</span></div>
+      </div>
+      <div style="display:flex; gap:6px; align-items:center;">
+        <div id="whatsappBadge" style="background:#e9f8f1; color:#078b59; padding:6px 10px; border-radius:16px; font-size:11px; font-weight:bold;">واتساپ: +9647812845787</div>
+        <button class="admin-btn" onclick="openAdminModal()">⚙️ بەڕێوەبەر</button>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div style="color:#9be7c8; font-size:11px; font-weight:bold;">تۆماتیکی و خێرا</div>
+      <h1>باڵانسەکەت<br><span>بگۆڕە بە ئاسانی.</span></h1>
+      <p>سیستەمەکە خۆکارانە نرخ و کرێی ئاڵوگۆڕ دەپێوێت.</p>
+    </div>
+
+    <div class="form-card">
+      <div class="card-heading">
+        <h2>داواکاری ئاڵوگۆڕ</h2>
+        <p>سەرچاوە و مەبەست هەڵبژێرە تا کرێیەکە تۆماتیکی هەژمار بکرێت</p>
+      </div>
+
+      <form id="requestForm">
+        <div class="rate-banner" id="rateBanner">
+          <div class="rate-banner-icon">%</div>
+          <div id="rateBannerText">تکایە جۆری ئاڵوگۆڕ هەڵبژێرە بۆ بینینی نرخ.</div>
+        </div>
+
+        <div class="exchange-panel">
+          <div style="font-weight:700; font-size:12px; margin-bottom:10px; color:#078b59;">جۆری ئاڵوگۆڕ</div>
+          <div class="exchange-grid">
+            <div class="field-group" style="margin:0;">
+              <label>لە باڵانسی *</label>
+              <div class="select-wrap"><select id="fromService" required><option value="" disabled selected>سەرچاوە</option></select><span>⌄</span></div>
+            </div>
+            <div style="text-align:center; font-weight:bold; color:#16b777; font-size:18px;">←</div>
+            <div class="field-group" style="margin:0;">
+              <label>بۆ باڵانسی *</label>
+              <div class="select-wrap"><select id="toService" required><option value="" disabled selected>مەبەست</option></select><span>⌄</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>بڕی باڵانس (IQD) *</label>
+          <div class="input-wrap">
+            <input id="amount" type="number" step="any" placeholder="10000" value="10000" required>
+            <span style="padding-left:12px; font-weight:bold; color:#078b59; font-size:11px;">IQD</span>
+          </div>
+          <div class="quick-amounts">
+            <button type="button" class="btn-chip" data-val="5000">5K</button>
+            <button type="button" class="btn-chip active" data-val="10000">10K</button>
+            <button type="button" class="btn-chip" data-val="25000">25K</button>
+            <button type="button" class="btn-chip" data-val="50000">50K</button>
+            <button type="button" class="btn-chip" data-val="100000">100K</button>
+            <button type="button" class="btn-chip" data-val="250000">250K</button>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-item">
+            <small id="feeLabel">کرێی ئاڵوگۆڕ (0%)</small>
+            <strong class="calc-fee" id="feeVal">IQD 0</strong>
+          </div>
+          <div class="calc-item">
+            <small id="payoutLabel">بڕی وەرگیراو</small>
+            <strong class="calc-payout" id="payoutVal">IQD 10,000</strong>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>تێبینی <span class="optional">(ئارەزوومەندانە)</span></label>
+          <textarea id="notes" rows="2" placeholder="هەر زانیارییەکی تر..."></textarea>
+        </div>
+
+        <button class="submit-btn" type="submit">ناردنی ڕاستەوخۆ بۆ واتسئەپ</button>
+      </form>
+    </div>
+
+    <!-- Live Display Streams Section -->
+    <div class="footer-streams-card">
+      <div class="footer-streams-title">📡 پەخشی ڕاستەوخۆی بۆرسە و کۆمپانیاکانی هەولێر</div>
+      <div class="footer-streams-subtitle">گواستنەوەی تەواوی تابلۆکان بە شێوازی ڕێک و ستوونی</div>
+
+      <div class="streams-grid">
+        <!-- 3. Khaki Shaqlawa (Optimized Mobile Responsive View matching Image 2) -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 خاکی شەقڵاوە (Khaki Shaqlawa)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="khaki-mobile-container">
+            <iframe class="khaki-mobile-iframe" src="https://khakishaqlawa.com/"></iframe>
+          </div>
+        </div>
+
+        <!-- 1. Qamar Al-Fajr -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 قەمەر الفجر (Qamar Al-Fajr)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe qamar-iframe" src="https://qamaralfajr.com/System/production/exchange_rates.php"></iframe>
+          </div>
+        </div>
+
+        <!-- 2. Billion Exchange -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 بۆرسەی بلیۆن (Billion Exchange)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe billion-iframe" src="https://billion-exchange.com/display"></iframe>
+          </div>
+        </div>
+
+        <!-- 4. Hatwan Exchange -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 هەتوان (Hatwan Exchange)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe" src="https://hatwanexchange.com/"></iframe>
+          </div>
+        </div>
+
+        <!-- 5. Tak Draw -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 تاک دراو (Tak Draw)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe" src="https://www.takdraw.com/"></iframe>
+          </div>
+        </div>
+
+        <!-- 6. Rozy Exchange -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 ڕۆزی (Rozy Exchange)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe" src="https://www.rozyexchange.com/"></iframe>
+          </div>
+        </div>
+
+        <!-- 7. Borsa Alam -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 بۆرسەی عالم (Borsa Alam)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe" src="https://borsa-alam.com/"></iframe>
+          </div>
+        </div>
+
+        <!-- 8. Hazhmar Imn -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 هەژماری من (Hazhmar Imn)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe" src="https://hazhmarimn.com/"></iframe>
+          </div>
+        </div>
+
+        <!-- 9. Baz Exchange -->
+        <div class="full-stream-box">
+          <div class="full-stream-header">
+            <span>🏢 باز ئەوەنج (Baz Exchange)</span>
+            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+          </div>
+          <div class="large-frame-container">
+            <iframe class="full-embed-iframe" src="https://bazexchange.com/currency"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Modal -->
+  <div class="modal" id="adminModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>داشبۆردی بەڕێوەبەر (ئیدیت)</h3>
+        <button class="close-btn" onclick="closeAdminModal()">✕</button>
+      </div>
+
+      <div id="loginSection">
+        <div class="field-group">
+          <label>وشەی تێپەڕی بەڕێوەبەر (Password)</label>
+          <div class="input-wrap"><input type="password" id="adminPass" placeholder="پاسۆرد بنووسە"></div>
+        </div>
+        <button class="submit-btn" onclick="checkAdminLogin()" style="margin-top:10px; height:40px;">چوونەژوورەوە</button>
+      </div>
+
+      <div id="dashboardSection" style="display:none;">
+        <p style="font-size:12px; color:var(--green-dark); font-weight:bold; margin-bottom:10px;">بە سەرکەوتوویی چوویە ژوورەوە!</p>
+        
+        <div class="field-group">
+          <label>ژمارەی واتساپ بۆ ناردنی داواکاری</label>
+          <div class="input-wrap"><input type="text" id="settingWhatsapp" placeholder="9647812845787"></div>
+        </div>
+
+        <div class="field-group">
+          <label>ڕێژەی هێنانی کرێ (Multiplier بۆ نموونە 0.96 واتە %4 کرێ)</label>
+          <div class="input-wrap"><input type="number" step="0.01" id="settingDefaultMultiplier" placeholder="0.95"></div>
+        </div>
+
+        <button class="submit-btn" onclick="saveAdminSettings()" style="margin-top:10px; height:42px;">پاشەکەوتکردنی گۆڕانکارییەکان</button>
+        <button onclick="logoutAdmin()" style="background:#ef4444; color:#fff; border:0; width:100%; border-radius:12px; height:38px; margin-top:8px; font-weight:bold; cursor:pointer;">دەرچوون</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let siteSettings = JSON.parse(localStorage.getItem('152cards_settings')) || {
+      whatsapp: "9647812845787",
+      defaultMultiplier: 0.95
+    };
+
+    document.getElementById('whatsappBadge').textContent = "واتساپ: +" + siteSettings.whatsapp;
+    document.getElementById('settingWhatsapp').value = siteSettings.whatsapp;
+    document.getElementById('settingDefaultMultiplier').value = siteSettings.defaultMultiplier;
+
+    function openAdminModal() {
+      document.getElementById('adminModal').style.display = 'flex';
+    }
+    function closeAdminModal() {
+      document.getElementById('adminModal').style.display = 'none';
+    }
+
+    function checkAdminLogin() {
+      const pass = document.getElementById('adminPass').value;
+      if (pass === "152admin") {
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('dashboardSection').style.display = 'block';
+      } else {
+        alert("پاسۆردەکە هەڵەیە!");
+      }
+    }
+
+    function logoutAdmin() {
+      document.getElementById('loginSection').style.display = 'block';
+      document.getElementById('dashboardSection').style.display = 'none';
+      document.getElementById('adminPass').value = '';
+      closeAdminModal();
+    }
+
+    function saveAdminSettings() {
+      siteSettings.whatsapp = document.getElementById('settingWhatsapp').value.trim();
+      siteSettings.defaultMultiplier = parseFloat(document.getElementById('settingDefaultMultiplier').value) || 0.95;
+      
+      localStorage.setItem('152cards_settings', JSON.stringify(siteSettings));
+      
+      document.getElementById('whatsappBadge').textContent = "واتساپ: +" + siteSettings.whatsapp;
+      alert("گۆڕانکارییەکان بە سەرکەوتوویی پاشەکەوت کران!");
+      closeAdminModal();
+      calculateExchange();
+    }
+
+    const ratesMatrix = {
+      "FastPay": { "FIB": 0.96, "AsiaPay": 0.94, "Qi Card": 0.96, "Asiacell": 0.95, "Korek": 1.00, "ZainCash": 0.94 },
+      "FIB": { "FastPay": 0.96, "AsiaPay": 0.94, "Qi Card": 0.96, "Asiacell": 0.95, "Korek": 1.00, "ZainCash": 0.94 },
+      "AsiaPay": { "FastPay": 0.96, "FIB": 0.96, "Qi Card": 0.96, "Asiacell": 0.95, "Korek": 1.00, "ZainCash": 0.94 },
+      "Qi Card": { "FastPay": 0.96, "FIB": 0.96, "AsiaPay": 0.94, "Asiacell": 0.95, "Korek": 1.00, "ZainCash": 0.94 },
+      "Asiacell": { "FastPay": 0.87, "FIB": 0.87, "AsiaPay": 0.87, "Qi Card": 0.87, "Korek": 0.87, "ZainCash": 0.87 },
+      "Korek": { "FastPay": 0.82, "FIB": 0.82, "AsiaPay": 0.82, "Qi Card": 0.80, "Asiacell": 0.82, "ZainCash": 0.82 },
+      "ZainCash": { "FastPay": 0.94, "FIB": 0.96, "AsiaPay": 0.94, "Qi Card": 0.96, "Asiacell": 0.95, "Korek": 1.00 }
+    };
+
+    const services = ['FastPay', 'FIB', 'AsiaPay', 'Qi Card', 'ZainCash', 'Asiacell', 'Korek', 'پارەی نەقد'];
+    const fromSel = document.getElementById('fromService');
+    const toSel = document.getElementById('toService');
+    const amountInput = document.getElementById('amount');
+
+    services.forEach(s => {
+      fromSel.add(new Option(s, s));
+      toSel.add(new Option(s, s));
+    });
+
+    fromSel.value = "FastPay";
+    toSel.value = "FIB";
+
+    function calculateExchange() {
+      const from = fromSel.value;
+      const to = toSel.value;
+      const amount = parseFloat(amountInput.value) || 0;
+
+      let multiplier = siteSettings.defaultMultiplier;
+      if (ratesMatrix[from] && ratesMatrix[from][to] !== undefined) {
+        multiplier = ratesMatrix[from][to];
+      } else if (from === to && from !== "") {
+        multiplier = 1.0;
+      }
+
+      const feePercent = Math.round((1 - multiplier) * 100);
+      const feeAmount = amount * (1 - multiplier);
+      const payoutAmount = amount * multiplier;
+      const ratePerThousand = Math.round(1000 * multiplier);
+
+      document.getElementById('rateBannerText').innerHTML = 
+        `نرخی (<b>${from}</b> ➔ <b>${to}</b>): بۆ هەر 1,000 دینار <b>${ratePerThousand.toLocaleString()}</b> دینار دەگات (کرێ: %${feePercent})`;
+
+      document.getElementById('feeLabel').textContent = `کرێی ئاڵوگۆڕ (%${feePercent})`;
+      document.getElementById('feeVal').textContent = `IQD ${Math.round(feeAmount).toLocaleString()}`;
+      document.getElementById('payoutLabel').textContent = `بڕی وەرگیراو (${multiplier})`;
+      document.getElementById('payoutVal').textContent = `IQD ${Math.round(payoutAmount).toLocaleString()}`;
+    }
+
+    document.querySelectorAll('.btn-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.btn-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        amountInput.value = btn.getAttribute('data-val');
+        calculateExchange();
+      });
+    });
+
+    fromSel.addEventListener('change', calculateExchange);
+    toSel.addEventListener('change', calculateExchange);
+    amountInput.addEventListener('input', calculateExchange);
+
+    calculateExchange();
+
+    document.getElementById('requestForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const from = fromSel.value;
+      const to = toSel.value;
+      const amount = parseFloat(amountInput.value) || 0;
+      const notes = document.getElementById('notes').value.trim();
+
+      let multiplier = (ratesMatrix[from] && ratesMatrix[from][to] !== undefined) ? ratesMatrix[from][to] : siteSettings.defaultMultiplier;
+      const feeAmount = Math.round(amount * (1 - multiplier));
+      const payoutAmount = Math.round(amount * multiplier);
+
+      let msg = `سڵاو، دەمەوێت داواکاری ئاڵوگۆڕی باڵانس بنێرم:\n\n` +
+                `🔄 لە: ${from}\n` +
+                `➡️ بۆ: ${to}\n` +
+                `💰 بڕی نێردراو: ${amount.toLocaleString()} IQD\n` +
+                `🏷️ کرێی ئاڵوگۆڕ: ${feeAmount.toLocaleString()} IQD\n` +
+                `✅ بڕی تەواوی وەرگیراو: ${payoutAmount.toLocaleString()} IQD`;
+
+      if(notes) msg += `\n📝 تێبینی: ${notes}`;
+      msg += `\n\nتکایە وردبینی بۆ مامەڵەکە بکەن. سوپاس!`;
+
+      const whatsappUrl = `https://wa.me/${siteSettings.whatsapp}?text=${encodeURIComponent(msg)}`;
+      
+      const link = document.createElement('a');
+      link.href = whatsappUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+  </script>
+</body>
+</html>
