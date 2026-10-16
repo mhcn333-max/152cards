@@ -59,6 +59,12 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
 .khaki-mobile-container{position:relative;width:100%;height:400px;overflow-y:auto;overflow-x:hidden;border-radius:12px;background:#ffffff;border:1px solid #1e4570;-webkit-overflow-scrolling:touch;}
 .khaki-mobile-iframe{width:100%;height:750px;border:0;display:block;}
 
+/* External Link Card for Protected Sites */
+.external-link-card{display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#10243d 0%,#091828 100%);border:1px solid #1e4570;border-radius:12px;padding:24px 16px;text-align:center;gap:12px;min-height:180px}
+.external-link-card p{color:#cbd5e1;font-size:12px;margin:0}
+.external-btn{background:linear-gradient(95deg,#12a96b,#16b777);color:#fff;text-decoration:none;padding:10px 20px;border-radius:10px;font-weight:bold;font-size:13px;box-shadow:0 4px 12px rgba(22,183,119,0.3);transition:0.2s}
+.external-btn:hover{opacity:0.9}
+
 .qamar-iframe{ transform: scale(0.35); margin-left: -190px; }
 .billion-iframe{ transform: scale(0.32); margin-left: -175px; }
 
@@ -154,7 +160,7 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
     <!-- Live Display Streams Section -->
     <div class="footer-streams-card">
       <div class="footer-streams-title">📡 پەخشی ڕاستەوخۆی بۆرسە و کۆمپانیاکانی هەولێر</div>
-      <div class="footer-streams-subtitle">گواستنەوەی تەواوی تابلۆکان بە شێوازی ڕێک و ستوونی</div>
+      <div class="footer-streams-subtitle">گواستنەوەی تەواوی تابلۆکان به شێوازی ڕێک و ستوونی</div>
 
       <div class="streams-grid">
         <!-- 1. Qamar Al-Fajr -->
@@ -223,36 +229,39 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
           </div>
         </div>
 
-        <!-- 7. Tak Draw -->
+        <!-- 7. Tak Draw (Direct Link Button due to server security blocking iframe) -->
         <div class="full-stream-box">
           <div class="full-stream-header">
             <span>🏢 تاک دراو (Tak Draw)</span>
-            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+            <span style="color:#73e5b5; font-size:10px;">🟢 کراوە</span>
           </div>
-          <div class="large-frame-container">
-            <iframe class="full-embed-iframe" src="https://www.takdraw.com/"></iframe>
+          <div class="external-link-card">
+            <p>ئەم کۆمپانیایە ڕێگری لە پیشاندانی ڕاستەوخۆ دەکات، تکایە بۆ بینینی تابلۆکە کرتە بکە:</p>
+            <a href="https://www.takdraw.com/" target="_blank" rel="noopener noreferrer" class="external-btn">کردنەوەی تابلۆی تاک دراو</a>
           </div>
         </div>
 
-        <!-- 8. Borsa Alam -->
+        <!-- 8. Borsa Alam (Direct Link Button) -->
         <div class="full-stream-box">
           <div class="full-stream-header">
             <span>🏢 بۆرسەی عالم (Borsa Alam)</span>
-            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+            <span style="color:#73e5b5; font-size:10px;">🟢 کراوە</span>
           </div>
-          <div class="large-frame-container">
-            <iframe class="full-embed-iframe" src="https://borsa-alam.com/"></iframe>
+          <div class="external-link-card">
+            <p>ئەم کۆمپانیایە ڕێگری لە پیشاندانی ڕاستەوخۆ دەکات، تکایە بۆ بینینی تابلۆکە کرتە بکە:</p>
+            <a href="https://borsa-alam.com/" target="_blank" rel="noopener noreferrer" class="external-btn">کردنەوەی تابلۆی بۆرسەی عالم</a>
           </div>
         </div>
 
-        <!-- 9. Baz Exchange -->
+        <!-- 9. Baz Exchange (Direct Link Button) -->
         <div class="full-stream-box">
           <div class="full-stream-header">
             <span>🏢 باز ئەوەنج (Baz Exchange)</span>
-            <span style="color:#73e5b5; font-size:10px;">🔴 ڕاستەوخۆ</span>
+            <span style="color:#73e5b5; font-size:10px;">🟢 کراوە</span>
           </div>
-          <div class="large-frame-container">
-            <iframe class="full-embed-iframe" src="https://bazexchange.com/currency"></iframe>
+          <div class="external-link-card">
+            <p>ئەم کۆمپانیایە ڕێگری لە پیشاندانی ڕاستەوخۆ دەکات، تکایە بۆ بینینی تابلۆکە کرتە بکە:</p>
+            <a href="https://bazexchange.com/currency" target="_blank" rel="noopener noreferrer" class="external-btn">کردنەوەی تابلۆی باز ئەوەنج</a>
           </div>
         </div>
       </div>
@@ -406,18 +415,18 @@ textarea{height:auto;padding:10px 12px;resize:vertical}
 
     document.getElementById('requestForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      const from = fromSel.value;
-      const to = toSel.value;
+      const من = fromSel.value;
+      const بۆ = toSel.value;
       const amount = parseFloat(amountInput.value) || 0;
       const notes = document.getElementById('notes').value.trim();
 
-      let multiplier = (ratesMatrix[from] && ratesMatrix[from][to] !== undefined) ? ratesMatrix[from][to] : siteSettings.defaultMultiplier;
+      let multiplier = (ratesMatrix[fromSel.value] && ratesMatrix[fromSel.value][toSel.value] !== undefined) ? ratesMatrix[fromSel.value][toSel.value] : siteSettings.defaultMultiplier;
       const feeAmount = Math.round(amount * (1 - multiplier));
       const payoutAmount = Math.round(amount * multiplier);
 
       let msg = `سڵاو، دەمەوێت داواکاری ئاڵوگۆڕی باڵانس بنێرم:\n\n` +
-                `🔄 لە: ${from}\n` +
-                `➡️ بۆ: ${to}\n` +
+                `🔄 لە: ${fromSel.value}\n` +
+                `➡️ بۆ: ${toSel.value}\n` +
                 `💰 بڕی نێردراو: ${amount.toLocaleString()} IQD\n` +
                 `🏷️ کرێی ئاڵوگۆڕ: ${feeAmount.toLocaleString()} IQD\n` +
                 `✅ بڕی تەواوی وەرگیراو: ${payoutAmount.toLocaleString()} IQD`;
